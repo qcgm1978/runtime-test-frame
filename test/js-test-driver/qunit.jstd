@@ -1,9 +1,0 @@
-server: http://localhost:4224
-
-load:
-   - qunit-adapter/equiv.js
-   - qunit-adapter/QUnitAdapter.js
-
-test:
-  - test-qunit.js
-  - test-create-class.js

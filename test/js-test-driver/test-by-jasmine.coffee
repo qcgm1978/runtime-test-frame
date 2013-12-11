@@ -56,9 +56,7 @@ describe 'js methods', ->
 # '7 JavaScript Basics Many Developers Aren\'t Using (Properly)'
 # JS Bin - Collaborative JavaScript Debugging http://jsbin.com/iboZAvUB/1/edit?js,output
 # the original link: http://tech.pro/tutorial/1453/7-javascript-basics-many-developers-aren-t-using-properly
-judgeExpression= (parameter) ->
-            if !parameter
-                throw new Error('error')
+
 describe 'String.prototype.replace: /g and /i Flags', ->
     it 'match correctly when reg with i and g', ->
         reg=///a///

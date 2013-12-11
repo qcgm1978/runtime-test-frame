@@ -11,6 +11,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/server.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/printenv.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/direction.js" />
+        <item url="file://$PROJECT_DIR$/test/js-test-driver/test-by-jasmine.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/scandir.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/rasterize.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/simpleserver.js" />
@@ -41,6 +42,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/features.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/colorwheel.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/movies.js" />
+        <item url="file://$PROJECT_DIR$/test/js-test-driver/cognitive-biases.js" />
+        <item url="file://$PROJECT_DIR$/test/js-test-driver/utility-tools.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/seasonfood.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/post.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/stdin-stdout-stderr.js" />
@@ -162,6 +165,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/page_events.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/server.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/printenv.js" />
+      <root url="file://$PROJECT_DIR$/test/js-test-driver/test-by-jasmine.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/direction.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/scandir.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/rasterize.js" />
@@ -193,6 +197,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/features.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/colorwheel.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/movies.js" />
+      <root url="file://$PROJECT_DIR$/test/js-test-driver/cognitive-biases.js" />
+      <root url="file://$PROJECT_DIR$/test/js-test-driver/utility-tools.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/seasonfood.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/post.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/stdin-stdout-stderr.js" />
