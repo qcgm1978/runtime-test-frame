@@ -1,26 +1,49 @@
-/**
- * Created with WebStorm.
- * User: qcgm1978
- */
-'use strict'
-runs(function() {
-      flag = false;
-      value = 0;
-
-      setTimeout(function() {
-        flag = true;
-      }, 500);
+var queue = [], paused = false, results;
+this.test = function (name, fn) {
+    queue.push(function () {
+        results = document.getElementById("results");
+        results = assert(true, name).appendChild(
+            document.createElement("ul"));
+        fn();
     });
-//The waitsFor block takes a latch function, a failure message, and a timeout.
-
-//The latch function polls until it returns true or the timeout expires, whichever comes first. If the timeout expires, the spec fails with the error message.
-
-    waitsFor(function() {
-      value++;
-      return flag;
-    }, "The Value should be incremented", 750);
-//Once the asynchronous conditions have been met, another runs block defines final test behavior. This is usually expectations based on state after the asynch call returns.
-
-    runs(function() {
-      expect(value).toBeGreaterThan(0);
-    });
+    runTest();
+};
+this.pause = function () {
+    paused = true;
+};
+this.resume = function () {
+    paused = false;
+    setTimeout(runTest, 1);
+};
+function runTest() {
+    if (!paused && queue.length) {
+        queue.shift()();
+        if (!paused) {
+            resume();
+        }
+    }
+}
+this.assert = function assert(value, desc) {
+    var li = document.createElement("li");
+    li.className = value ? "pass" : "fail";
+    li.appendChild(document.createTextNode(desc));
+    results.appendChild(li);
+    if (!value) {
+        li.parentNode.parentNode.className = "fail";
+    }
+    return li;
+};
+test("Async Test #1", function () {
+    pause();
+    setTimeout(function () {
+        assert(true, "First test completed");
+        resume();
+    }, 1000);
+});
+test("Async Test #2", function () {
+    pause();
+    setTimeout(function () {
+        assert(true, "Second test completed");
+        resume();
+    }, 1000);
+});
