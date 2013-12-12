@@ -10,8 +10,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/page_events.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/server.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/printenv.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/direction.js" />
         <item url="file://$PROJECT_DIR$/test/js-test-driver/test-by-jasmine.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/direction.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/scandir.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/rasterize.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/simpleserver.js" />
@@ -35,6 +35,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/detectsniff.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/weather.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/countdown.js" />
+        <item url="file://$PROJECT_DIR$/test/js-test-driver/baidu-front-end-interview-problems.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/ipgeocode.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/netsniff.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/loadspeed.js" />
@@ -165,8 +166,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/page_events.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/server.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/printenv.js" />
-      <root url="file://$PROJECT_DIR$/test/js-test-driver/test-by-jasmine.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/direction.js" />
+      <root url="file://$PROJECT_DIR$/test/js-test-driver/test-by-jasmine.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/scandir.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/rasterize.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/printmargins.js" />
@@ -189,6 +190,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/postserver.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/detectsniff.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/weather.js" />
+      <root url="file://$PROJECT_DIR$/test/js-test-driver/baidu-front-end-interview-problems.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/countdown.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/ipgeocode.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/netsniff.js" />
