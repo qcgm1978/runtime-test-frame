@@ -44,32 +44,32 @@ describe 'this is a test for the interview problems of Baidu front-end from inte
             width: '840px'
             margin: '0 auto'
         }
-        
+
         topsection={
             height: '90px'
         }
-        
+
         contentwrapper={
             float: left
             width: '100%'
         }
-        
+
         contentcolumn={
             margin: '0 190px 0 180px'
         }
-        
+
         leftcolumn={
             float: left
             width: '180px '
             marginLeft: '-840px'
         }
-        
+
         rightcolumn={
             float: left
             width: '190px'
             marginLeft: '-190px '
         }
-        
+
         footer={
             clear: left
             width: '100%'
@@ -95,119 +95,88 @@ describe 'this is a test for the interview problems of Baidu front-end from inte
         block.attr=attr
         expect(block.attr).toBeDefined()
         expect(inline.attr).toBeUndefined()
+
+
     it 'CSS Selector Hacks',->
-        general='html>/**/body'
-        common='html>body'
-        group1=['IE7, FF, Saf, Opera','html>body']
-        hack=
-            ie6:  ['* html']
-            ie7:['*:first-child+html']
-            ff:[common]
-            saf:[common]
-            opera:[common]
-        expect(hack['ie6']).toEqual(['* html'])
-        getSelectorHack= (browser)->
-            str='ie6'
-            num = 6
-            arr=[]
-            browserNum=///(.*)(\d)///.exec browser
-            if browserNum[1] is 'ie'
-                if browserNum[2]<=6
-                    return hack[str]
-                reg=new RegExp(browser)
-                if reg.exec group1[0]
-                    arr = hack[browser][...]
-                    arr.push group1[1]
-                    return arr
-            if val
-                arr.push(val)
-            val = hack[browser]
-            arr.push(general)
-            result=switch true
-                    when browser==++num then hack[String(browser)]
-                    else arr
-        expect(getSelectorHack('ie5')).toEqual(hack.ie6)
-        expect(getSelectorHack('ie7')).toEqual(['*:first-child+html','html>body'])
-#        expect(getSelectorHack(8)).toEqual(['html>/**/body'])
-#        expect(getSelectorHack('ff')).toEqual(['html>body','html>/**/body'])
-#        expect(getSelectorHack('opera')).toEqual(['html>body','html>/**/body'])
-        ###
+        selectorHacksIe=
+            6: '* html'
+            7:['*:first-child+html', 'html>body',':root *>','*+html']
+            8:'html>/**/body'
+            10:['*+html',':root *>','html>/**/body']
+        getIeHacks=(browser)->
+            arr=///ie(\d+)///.exec browser
+            if arr is null
+                return
+            num=parseInt(arr[1])
+            if num <=6
+                return selectorHacksIe['6']
+            if num >= 10
+                return selectorHacksIe['10']
+            selectorHacksIe[num]
 
-     Opera 9.27 and below, safari 2 
-    html:first-child #cinco { color: red }
+        expect(getIeHacks('ie5.0')).toEqual('* html')
+        expect(getIeHacks('ie7')).toEqual(['*:first-child+html', 'html>body',':root *>','*+html'])
+        expect(getIeHacks('ie11')).toEqual(['*+html',':root *>','html>/**/body'])
+        expect(getIeHacks('ie9')).toBeUndefined()
+        selectorHacksStandard=
+            val:[':root *>','html>/**/body']
+            mobile:'@media screen and (max-device-width:'
+            chrome:
+                val:['body:nth-of-type(1)','body:first-of-type','@media screen and (-webkit-min-device-pixel-ratio:0)']
+                relation:'>=1'
+            firefox:
+                val:['html>body']
+                '1':['x:-moz-any-link']
+                '3':['x:-moz-any-link, x:default']
+                '3.5':['body:nth-of-type(1)','body:not(:-moz-handler-blocked)']
+            safari:
+                val:'html>body'
+                2:['html:first-child','html[xmlns*=""] body:last-child']
+                3:['html[xmlns*=""] body:last-child', 'body:nth-of-type(1)']
+                '2<=n>=3.1' :['html[xmlns*=""]:root','*|html[xmlns*=""] ']
+                '>=3':['body:nth-of-type(1)','body:first-of-type','@media screen and (-webkit-min-device-pixel-ratio:0)']
+                '>=3.5':'body:first-of-type'
+            opera:
+                val:'html>body'
+                '9.25':'*|html[xmlns*=""]'
+                '<=9.27':'html:first-child'
+                '>=9':['body:nth-of-type(1)','body:first-of-type']
 
-     Safari 2-3 
-    html[xmlns*=""] body:last-child #seis { color: red }
+        getOtherHacks=(browser)->
+            arr=///([A-Za-z]+)(\d+)?///.exec browser
+            if arr is null
+                return
+            browser=arr[1]
+            num=parseInt(arr[2])
+            ret=selectorHacksStandard.val
+            switch
+                when browser is 'mobile'
+                    ret.concat selectorHacksStandard.mobile
+                when browser is 'chrome' and num >=1
+                    ret.concat selectorHacksStandard.chrome
+                when browser is 'firefox'
+                    ret=ret.concat selectorHacksStandard.firefox.val
+                    if num>=1
+                        ret=ret.concat selectorHacksStandard.firefox['1']
+                    if num>=3
+                        ret=ret.concat selectorHacksStandard.firefox['3']
+                    if num>= 3.5
+                        ret.concat selectorHacksStandard.firefox['3.5']
+                    ret
+                when browser is 'safari'
 
-     safari 3+, chrome 1+, opera9+, ff 3.5+ 
-    body:nth-of-type(1) #siete { color: red }
-
-     safari 3+, chrome 1+, opera9+, ff 3.5+ 
-    body:first-of-type #ocho { color: red }
-
-     saf3+, chrome1+ 
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-    #diez { color: red }
-    }
-
-     iPhone / mobile webkit 
-    @media screen and (max-device-width: 480px) {
-    #veintiseis { color: red }
-    }
-
-
-     Safari 2 - 3.1 
-    html[xmlns*=""]:root #trece { color: red }
-
-     Safari 2 - 3.1, Opera 9.25 
-    *|html[xmlns*=""] #catorce { color: red }
-
-     Everything but IE6-8 
-    :root *> #quince { color: red }
-
-     IE7 
-    *+html #dieciocho { color: red }
-
-     IE 10+ 
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    #veintiun { color: red; }
-    }
-
-     Firefox only. 1+ 
-    #veinticuatro, x:-moz-any-link { color: red }
-
-     Firefox 3.0+ 
-    #veinticinco, x:-moz-any-link, x:default { color: red }
-
-     FF 3.5+ 
-    body:not(:-moz-handler-blocked) #cuarenta { color: red; }
-
-
-    **** Attribute Hacks *****
-
-     IE6 
-    #once { _color: blue }
-
-     IE6, IE7 
-    #doce { *color: blue;  or #color: blue  }
-
-     Everything but IE6 
-    #diecisiete { color: blue }
-
-     IE6, IE7, IE8, but also IE9 in some cases :( 
-    #diecinueve { color: blue\9; }
-
-     IE7, IE8 
-    #veinte { color\*: blue\9; }
-
-     IE6, IE7 -- acts as an !important 
-    #veintesiete { color: blue !ie; }  string after ! can be anything 
-
-     IE8, IE9 
-    #anotherone {color: blue\0/;}  must go at the END of all rules 
-
-     IE9, IE10 
-    @media screen and (min-width:0\0) {
-    #veintidos { color: red}
-    }
-###
+#        expect( ///([A-Za-z]+)(\d+)?///.exec 'chrome2').toEqual(['chrome2','chrome','2'])
+#        expect(///(\w+)(\d+)?///.exec 'mobile').toEqual(['mobile','mobile',undefined])
+        expect(getOtherHacks('mobile')).toEqual([':root *>','html>/**/body','@media screen and (max-device-width:'])
+        expect(getOtherHacks('chrome2')).toEqual([':root *>','html>/**/body','body:nth-of-type(1)','body:first-of-type','@media screen and (-webkit-min-device-pixel-ratio:0)'])
+        expect(getOtherHacks('chrome0.5')).toBeUndefined()
+        expect(getOtherHacks('firefox1')).toEqual([':root *>','html>/**/body','html>body','x:-moz-any-link'])
+        expect(getOtherHacks('firefox3')).toEqual([':root *>','html>/**/body','html>body','x:-moz-any-link','x:-moz-any-link, x:default'])
+        attrHacks=
+            ie6:['_','*','#','\9','!']
+            other:
+                val: '/**/'
+                ie7:['*|#','\9','/*\**/','!']
+                ie8:['\9','/*\**/','\0']
+                ie9:['\9','\0','@media screen and (min-width:0\0)']
+                ie10:['@media screen and (min-width:0\0)']
