@@ -10,8 +10,8 @@ test:
 #  - test-by-jasmine.js
 #   -  learn-jasmine-by-jasmine.js
 #    - cognitive-biases.js
-#    - baidu-front-end-interview-problems.js
-  - Top-10-Movies-for-Programmers.js
-exclude:
+    - baidu-front-end-interview-problems.js
+#  - Top-10-Movies-for-Programmers.js
+#exclude:
 #  - uselessfile.js
 

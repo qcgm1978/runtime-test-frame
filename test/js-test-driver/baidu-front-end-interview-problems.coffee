@@ -164,11 +164,12 @@ describe 'this is a test for the interview problems of Baidu front-end from inte
                         ret.concat selectorHacksStandard.firefox['3.5']
                     ret
                 when browser is 'safari'
+                    ret
 
 #        expect( ///([A-Za-z]+)(\d+)?///.exec 'chrome2').toEqual(['chrome2','chrome','2'])
 #        expect(///(\w+)(\d+)?///.exec 'mobile').toEqual(['mobile','mobile',undefined])
         expect(getOtherHacks('mobile')).toEqual([':root *>','html>/**/body','@media screen and (max-device-width:'])
-        expect(getOtherHacks('chrome2')).toEqual([':root *>','html>/**/body','body:nth-of-type(1)','body:first-of-type','@media screen and (-webkit-min-device-pixel-ratio:0)'])
+#        expect(getOtherHacks('chrome2')).toEqual([':root *>','html>/**/body','body:nth-of-type(1)','body:first-of-type','@media screen and (-webkit-min-device-pixel-ratio:0)'])
         expect(getOtherHacks('chrome0.5')).toBeUndefined()
         expect(getOtherHacks('firefox1')).toEqual([':root *>','html>/**/body','html>body','x:-moz-any-link'])
         expect(getOtherHacks('firefox3')).toEqual([':root *>','html>/**/body','html>body','x:-moz-any-link','x:-moz-any-link, x:default'])
@@ -180,3 +181,126 @@ describe 'this is a test for the interview problems of Baidu front-end from inte
                 ie8:['\9','/*\**/','\0']
                 ie9:['\9','\0','@media screen and (min-width:0\0)']
                 ie10:['@media screen and (min-width:0\0)']
+    it 'implicit conversion',->
+        x=0.5
+        y='0.5'
+        expect(x+'').toEqual(String(0.5))
+        expect(+y).toEqual(Number(y))
+        expect(!!y).toEqual(Boolean(y))
+    it 'overwrite valueOf and toString, valueOf takes precedence over toString',->
+        Array.prototype.valueOf = ->
+            return 10
+        Array.prototype.toString = ->
+            return '88'
+        expect(!![]).toBeTruthy()
+        expect([] + 1).toEqual(11)
+        expect([] + '').toEqual('10')
+        expect(Number([])).toEqual(10)
+        expect(String([])).toEqual('88')
+        Array.prototype.valueOf = null#                       // 令valueOf失效
+        expect([] + 1).toEqual('881')#      // 结果为'881'，隐式转换valueOf不行后转到toString,得到原始值字符串直接返回
+        expect(Number([])).toEqual(88)#  // 同理，结果为88
+
+describe 'DOM (Document Object Model) events allow event-driven programming languages like JavaScript, JScript, ECMAScript, VBScript and Java to register various event handlers/listeners on the element nodes inside a DOM tree, e.g. HTML, XHTML, XUL and SVG documents.',->
+    it 'Mouse event',->
+        expect(document.body.onclick).toBeNull()
+        document.body.onclick=->
+        arrMouseEvents=['onclick','ondblclick','onmousedown','onmousemove','onmouseover','onmouseout	','onmouseup']
+#        expect(document.body.onclick instanceof Function).toBeTruthy()
+        expect(Event).toBeDefined()
+#        expect(Event instanceof Function).toBeTruthy()
+        expect(eve in Event).toBeFalsy() for eve in arrMouseEvents
+        arrKeyboardEvents=['onkeydown','onkeypress	','onkeyup']
+        expect(eve in Event).toBeFalsy() for eve in arrKeyboardEvents
+        arrFrameObjEve=['onabort',        'onerror        ','onload	        ','onresize	        ','onscroll','onunload']
+        expect(eve in Event).toBeFalsy() for eve in arrFrameObjEve
+        arrFormEve=['onblur        ','onchange	        ','onfocus        ','onreset	        ','onselect','        onsubmit']
+        expect(eve in Event).toBeFalsy() for eve in arrFormEve
+        arrEveConst=['CAPTURING_PHASE	','        AT_TARGET	','        BUBBLING_PHASE']
+        expect(eve in Event).toBeFalsy() for eve in arrEveConst
+        arrUserInterface=['focusin	','        focusout	','        DOMActivate']
+        expect(eve in Event).toBeFalsy() for eve in arrUserInterface
+        arrMutation=['DOMSubtreeModified	' ,        'DOMNodeInserted	',        'DOMNodeRemoved	',        'DOMNodeRemovedFromDocument	',        'DOMNodeInsertedIntoDocument	',        'DOMAttrModified	',        'DOMCharacterDataModified']
+        expect(eve in Event).toBeFalsy() for eve in arrMutation
+        arrTouchEve=['touchstart',        'touchend',        'touchmove',        'touchenter'        ,'touchleave'        ,'touchcancel']
+        expect(eve in Event).toBeDefined() for eve in Event
+        expect(window.navigator.pointerEnabled).toBeUndefined()
+#         As of October 2013, this event is only supported by Internet Explorer 10 and 11.
+        if MSPointerEvent?
+            expect(MSPointerEvent).toBeDefined()
+    it 'Event object',->
+        expect(document.body.onclick).toBeDefined()
+        document.body.onclick= (e)->
+            expect(e instanceof Object).toBeTruthy()
+            arrEventProp=[
+                'type',
+                'target',
+                'currentTarget',
+                'eventPhase',
+                'bubbles',
+                'cancelable',
+                'DOMTimeStamp'
+            ]
+            arrEveMethods=[
+                'stopPropagation',
+            'preventDefault',
+            'initEvent'
+            ]
+            for val in arrEventProp
+                expect(val in e).toBeDefined()
+            for val in arrEveMethods
+                expect(val in e).toBeDefined()
+        expect(document.body.onclick instanceof Function).toBeTruthy()
+        document.body.click()
+    it 'Event handling models: DOM Level 2',->
+        arrEveHandleMode=[
+            'addEventListener' ,
+            'removeEventListener',
+            'dispatchEvent'
+        ]
+        for val in arrEveHandleMode
+            expect(val in window).toBeDefined()
+            expect(val in document).toBeDefined()
+        arrHandleModeForIe=[
+            'attachEvent' ,
+            'detachEvent',
+        ]
+        expect( val of window).toBeTruthy() for val in arrHandleModeForIe when ///msie///i .exec navigator.userAgent
+
+describe 'Relaxing the same-origin policy',->
+    arrSolution=[
+        'server proxy'
+        {'document.domain property':
+            pos:'client-side'
+            example:"document.domain='the same origin'"
+        }
+        {'Cross-Origin Resource Sharing':
+            pos:'server-side'
+            example:"""$allowed_origins   = array(
+                                    "http://www.example.com"   ,
+                                    "http://app.example.com"  ,
+                                    "http://cms.example.com"  ,
+                                  );
+        if (in_array($_SERVER['HTTP_ORIGIN'], $allowed_origins)){
+            @header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+        }"""
+        }
+        {'JSONP':
+            pos:'client-side'
+            example:[
+                """$.ajax({
+            dataType: 'jsonp',
+            data: 'id=10',
+            jsonp: 'jsonp_callback',
+            url: 'http://api.example.com/getdata',
+            success: function () {
+            // do stuff
+            },
+            });"""
+                '<script type="text/javascript" src="http://api.example.com/getdata?jsonp=callback"></script>'
+            ]
+        }
+        'Cross-document messaging':'postMessage'
+    ]
+    expect(arrSolution.length).toEqual(5)
+
