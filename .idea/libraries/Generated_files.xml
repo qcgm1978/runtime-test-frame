@@ -48,6 +48,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/movies.js" />
         <item url="file://$PROJECT_DIR$/test/js-test-driver/cognitive-biases.js" />
         <item url="file://$PROJECT_DIR$/test/js-test-driver/utility-tools.js" />
+        <item url="file://$PROJECT_DIR$/test/js-test-driver/jquery-questions.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/seasonfood.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/post.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/stdin-stdout-stderr.js" />
@@ -209,6 +210,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/movies.js" />
       <root url="file://$PROJECT_DIR$/test/js-test-driver/cognitive-biases.js" />
       <root url="file://$PROJECT_DIR$/test/js-test-driver/utility-tools.js" />
+      <root url="file://$PROJECT_DIR$/test/js-test-driver/jquery-questions.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/seasonfood.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/post.js" />
       <root url="file://$PROJECT_DIR$/node_modules/grunt-contrib-jasmine/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/lib/phantom/examples/stdin-stdout-stderr.js" />
