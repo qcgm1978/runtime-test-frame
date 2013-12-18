@@ -304,3 +304,72 @@ describe 'Relaxing the same-origin policy',->
     ]
     expect(arrSolution.length).toEqual(5)
 
+describe 'HTML5',->
+    it 'The <label> element does not render as anything special for the user. However, it provides a usability improvement for mouse users, because if the user clicks on the text within the <label> element, it toggles the control.',->
+        html='<form action="demo_form.asp">
+          <label for="male">Male</label>
+          <input type="radio" name="sex" id="male" value="male"><br>
+          <label for="female">Female</label>
+          <input type="radio" name="sex" id="female" value="female"><br>
+          <input type="submit" value="Submit">
+        </form>'
+#        label=new RegExp('\<label.*?for\s*\=\s*\"\s*(\w+)\"')
+        label=///\<label.*?for\s*\=\s*\"\s*(\w+)\"///
+        input=///\<input.*?id\s*\=\s*\"\s*(\w+)\"///
+        arr=label.exec html
+        arr1=input.exec html
+        expect(arr[1]).toEqual('male')
+        expect(arr1[1]).toEqual('male')
+        expect(arr[1]).toEqual(arr1[1])
+
+describe 'css basic property writting',->
+    css='/*This is a comment*/
+    p
+    {
+    text-align:center;
+    /*This is another comment*/
+    color:black;
+    }'
+    arr=['selector',{declaration:{'property','value'}}]
+    expect(arr[1].declaration).toEqual({
+        'property',
+        'value'
+    })
+    reg=///
+        (/\*.*?\*/)  #the first line comments
+        .*?
+                 (\w+) #selector
+        .*
+        \{.*?
+             (([a-z-]+)\s*\:\s*(\w+)\s*\;) # declaration, property, value
+        .*
+        (/\*.*?\*/) # the second comments
+        .*?
+         (([a-z-]+)\s*\:\s*(\w+)\s*\;)
+        .*\}$
+        ///
+    arrCode=reg.exec css
+    expect(arrCode).toBeTruthy()
+    expect(arrCode[1]).toEqual('/*This is a comment*/')
+    expect(arrCode[2]).toEqual('p')
+    expect(arrCode[3]).toEqual('text-align:center;')
+    expect(arrCode[4]).toEqual('text-align')
+    expect(arrCode[5]).toEqual('center')
+    expect(arrCode[6]).toEqual('/*This is another comment*/')
+    expect(arrCode[7]).toEqual('color:black;')
+
+describe 'The data-* attributes is used to store custom data private to the page or application.',->
+    pri='any attribute that starts with “data-” will be treated as a storage area for private data (private in the sense that the end user can’t see it – it doesn’t affect layout or presentation).'
+    attach=' the best means of attaching raw data to HTML elements – in a valid manner'
+    access='validation or needing to be val'
+    document.body.data={pri,attach,access}
+    expect(document.body.data).toEqual({pri,attach,access})
+    document.body.data.temp='temp'
+    expect(document.body.data.temp).toEqual('temp')
+
+describe 'css reset',->
+    why='The foundational CSS Reset removes the inconsistent styling of HTML elements provided by browsers. This creates a dependably flat foundation to build upon. With CSS Reset loaded, write explicit CSS your project needs.'
+    source={yuiCssReset:'http://yui.yahooapis.com/3.14.0/build/cssreset/cssreset-min.css'}
+    expect(document.body.style.fontSize).toEqual('')
+
+
