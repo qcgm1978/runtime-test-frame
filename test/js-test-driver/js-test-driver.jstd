@@ -12,7 +12,8 @@ test:
 #    - cognitive-biases.js
 #    - baidu-front-end-interview-problems.js
 #  - Top-10-Movies-for-Programmers.js
-  - Interview-Questions-from-github.js
+#  - Interview-Questions-from-github.js
+ - temp.js
 #exclude:
 #  - uselessfile.js
 
