@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "utility-tools.js",
+  "sourceRoot": "",
+  "sources": [
+    "utility-tools.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,UAAA;CAAA,KAAA,uCAAA;;CAAA,CACA,CAAkB,MAAC,MAAnB;AAEQ,CAAJ,GAAA,KAAA;CACI,GAAU,CAAA,EAAA,KAAA;MAHA;CADlB,EACkB;;CADlB,CAMA,CAAoB,MAAC,CAAD,SAApB;CACoB,CAAU,EAA1B,MAAA,CAAA,IAAe;CAPnB,EAMoB;;CANpB,CAQA,CAAQ,CARR,GAQA;;CARA,CASA,CAAqB,CAAjB,WAAJ;;CATA,CAUA,CAAyB,CAArB,eAAJ;CAVA"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "jquery-questions.js",
+  "sourceRoot": "",
+  "sources": [
+    "jquery-questions.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,UAAA;CAAA,CACA,CAA2B,KAA3B,CAA2B,QAA3B;CACO,CAAH,CAAuI,MAAA,EAAvI,wHAAA;CADJ,EAA2B;CAD3B"
+}

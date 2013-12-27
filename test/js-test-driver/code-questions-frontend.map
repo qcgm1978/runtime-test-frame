@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "code-questions-frontend.js",
+  "sourceRoot": "",
+  "sources": [
+    "code-questions-frontend.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,UAAA;CAAA;CAAA"
+}
