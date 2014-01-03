@@ -17,9 +17,12 @@ test:
 #  - Interview-Questions-from-github.js
 # - temp.js
 # - architecture.js
-# - core-html5-canvas/HTML5-Developer-Cookbook.js
-# - js-test-driver/books/core-html5-canvas.js
-  - js-test-driver/books/design-trustworthy-software.js
+#- js-test-driver/books/HTML5-Developer-Cookbook.js
+- js-test-driver/books/core-html5-canvas.js
+#  - js-test-driver/books/design-trustworthy-software.js
+#  - js-test-driver/books/just-enough-software-architecture.js
+#  - js-test-driver/books/refactoring-to-patterns.js
+#  - js-test-driver/books/javascript-cookbook.js
 #exclude:
 #  - uselessfile.js
 
